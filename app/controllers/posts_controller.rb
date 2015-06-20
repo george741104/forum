@@ -3,9 +3,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = @posts.page( params[:page]).per(15)
   end
-  def show
 
+  def show
   end
 
   def new
@@ -13,11 +14,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new
     #@event.user = current_user
     @post.save
     redirect_to posts_path
   end
+
+  def edit
+  end
+
+  def update
+    @post.update(post_params)
+
+    redirect_to posts_path(@post)
+  end
+
   def destroy
     @post.destroy
 

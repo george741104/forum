@@ -10,13 +10,24 @@ namespace :data do
 
     puts "creating fake data!"
 
-    user = User.create!( :email => "ihower@gmail.com", :password =>"12345678")
+    user = User.create!( :name =>'ihower',:email => "ihower@gmail.com", :password =>"12345678")
 
     50.times do |i|
-      e = Post.create( :topic => Faker::App.name, :content => Faker::Lorem.paragraph(10))
-      50.times do |j|
-        e.user.create(:name => Faker::Name.name)
-      end
+      p = Post.create(:topic => Faker::App.name, :content => Faker::Lorem.paragraph(10))
+      p.save
+    end
+    50.times do |j|
+      u = User.create(:name => Faker::Name.name, :email => Faker::Internet.email)
+    end
+    50.times do |j|
+      c = Comment.create(:topic => Faker::App.name, :content => Faker::Lorem.paragraph(2))
     end
   end
+
+  task :post => :environment do
+    50.times do |i|
+      p = Post.create(:topic => Faker::App.name, :content => Faker::Lorem.paragraph(10))
+    end
+  end
+
 end

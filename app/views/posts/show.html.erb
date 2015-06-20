@@ -1,8 +1,10 @@
 <div class="container">
   <h3><%=@post.topic%></h3>
-  <div class="well"><%=@post.content%></div>
+  <div class="well">
+    <%=@post.content%>
+  </div>
 
 
-    <%= link_to 'Back to Index', :controller =>'posts', :action => 'index'%>
+  <%= link_to "Back to Index", posts_path, :class=>'btn btn-defaul'%>
 
 </div>

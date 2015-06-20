@@ -1,0 +1,7 @@
+<div class="container">
+  <%=form_for @post, :url=>post_path(@post),:method => :patch do |f|%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= f.submit "Update", :class=>'btn btn-success' %>
+    <%= link_to "Cancel", posts_path, :class=>'btn btn-default' %>
+  <%end%>
+</div>
