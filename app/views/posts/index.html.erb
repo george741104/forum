@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="well">Post List</h1>
-
+  <%=link_to"User List", :controller=>'users', :action=>'index'%>
   <table class="table table-responsive table-hover">
       <tr>
         <th><h4>Topic</h4></th>
@@ -21,6 +21,9 @@
         </td>
         <td>
           <%=link_to "Delete", post_path(p) ,:class=>'btn btn-primary',:method => :delete %>
+        </td>
+        <td>
+          <%=link_to "Post List", user_posts_path(p) ,:class=>'btn btn-primary'%>
         </td>
       </tr>
     <%end%>

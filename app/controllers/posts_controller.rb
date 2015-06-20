@@ -49,7 +49,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
     def post_params
-      params.require(:post).permit(:topic, :content)
+      params.require(:post).permit(:topic, :content, :user_id)
     end
 
 

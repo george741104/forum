@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h2>User List</h2>
+  <div><%=link_to "Back to index", user_posts_path%></div>
+
+    <table class="table table-responsive table-hover">
+      <tr>
+        <th>Name</th>
+        <th colspan="2">Email</th>
+      </tr>
+  <%=@users.each do |u|%>
+      <tr>
+        <td>
+          <%=u.name%>
+        </td>
+        <td>
+          <%=@user.try(:post)%>
+        </td>
+        <td>
+          <%=u.email%>
+        </td>
+      </tr>
+
+  <%end%>
+  </table>
+</div>

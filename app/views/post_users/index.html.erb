@@ -1,0 +1,11 @@
+<h2> :Post list </h2>
+
+<ul>
+  <% @user.each do |p|%>
+    <li>
+      <%= p.name %>
+      <%= link_to "Show", post_user_path(@user, p), :class =>'btn btn-primary'%>
+
+    </li>
+  <%end%>
+</ul>
