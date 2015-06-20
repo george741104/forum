@@ -1,7 +1,7 @@
 <div class="container">
   <h3><%=@post.topic%></h3>
   <div class="well">
-    <%=@post.content%>
+    <%= simple_format @post.content%>
   </div>
 
 

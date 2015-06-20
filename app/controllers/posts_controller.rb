@@ -14,19 +14,28 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    #@event.user = current_user
-    @post.save
-    redirect_to posts_path
+    @post = Post.new(post_params)
+    @post.user = current_user
+    if @post.save
+      flash[:notice] = "Post was successfully created"
+      redirect_to posts_path
+      else
+        render :action => :new
+    end
   end
 
   def edit
   end
 
   def update
-    @post.update(post_params)
 
-    redirect_to posts_path(@post)
+    if @post.update(post_params)
+      flash[:notice] = "Post was successfully updated"
+      redirect_to posts_path
+      else
+      flash[:alert] = "Topic can't be blank"
+        render :action => :edit
+    end
   end
 
   def destroy

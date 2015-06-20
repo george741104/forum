@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div class="container">
+<p>Hi <%=current_user.email%> !</p>
+    <p style="color: green" class="notice"><%= notice %></p>
+    <p style="color: red" class="alert"><%= alert %></p>
+</div>
 <%= yield %>
 
 </body>
