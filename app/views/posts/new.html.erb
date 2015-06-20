@@ -1,0 +1,14 @@
+<h3>Add new post</h3>
+<%= form_for @post, :url => {:controller => 'posts', :action =>'create'} do |f| %>
+  <div class="form-group">
+    <%= f.label :topic, "Topic" %>
+    <%= f.text_field :topic, :class=>"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content, :class=>"form-control" %>
+  </div>
+
+    <%= f.submit "Create" , :class=>"btn btn-success" %>
+<% end %>
+<%#= render :partial => 'form', :locals => { :f => f } %>

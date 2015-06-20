@@ -1,0 +1,11 @@
+<ul>
+  <%@posts.each do |p|%>
+    <li>
+      <%= p.topic %>
+      <%=link_to "Info", post_path(p),:class=>'btn btn-primary'%>
+      <%=link_to "Edit", post_path(p) ,:class=>'btn btn-primary'%>
+      <%=link_to "Delete", post_path(p) ,:class=>'btn btn-primary',:method => :delete %>
+    </li>
+  <%end%>
+</ul>
+<%= link_to "Add Post", :controller => 'posts', :action =>'new',:class=>'btn btn-primary'%>
